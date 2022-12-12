@@ -38,24 +38,24 @@ We can add BASIC to be loaded 2 ways, either on a disk with DOS 3.3 Master prelo
 ### Adding images on top of DOS w/ Integer BASIC
 ```
 # from the root of this repo
-cp disk_images/dos_3_3_master.dsk disk_images/helloworld_dos.dsk
-cat applesoft_basic_programs/helloworld.bas | java -jar applecommander/AppleCommander-ac-1.8.0.jar -bas disk_images/helloworld_dos.dsk helloworld
+cp disk_images/reference/dos_3_3_master.dsk disk_images/created/helloworld_dos.dsk
+cat applesoft_basic_programs/helloworld.bas | java -jar applecommander/AppleCommander-ac-1.8.0.jar -bas disk_images/created/helloworld_dos.dsk helloworld
 
 # we can add multiple BASIC programs to one disk image
-cp disk_images/dos_3_3_master.dsk disk_images/myprograms_dos.dsk
-cat applesoft_basic_programs/helloworld.bas | java -jar applecommander/AppleCommander-ac-1.8.0.jar -bas disk_images/myprograms_dos.dsk helloworld
-cat applesoft_basic_programs/sample.bas | java -jar applecommander/AppleCommander-ac-1.8.0.jar -bas disk_images/myprograms_dos.dsk sample
+cp disk_images/reference/dos_3_3_master.dsk disk_images/created/myprograms_dos.dsk
+cat applesoft_basic_programs/helloworld.bas | java -jar applecommander/AppleCommander-ac-1.8.0.jar -bas disk_images/created/myprograms_dos.dsk helloworld
+cat applesoft_basic_programs/sample.bas | java -jar applecommander/AppleCommander-ac-1.8.0.jar -bas disk_images/created/myprograms_dos.dsk sample
 ```
 
 ### Adding images to an empty DOS disk image
 
 ```
 # from the root of this repo
-java -jar applecommander/AppleCommander-ac-1.8.0.jar -dos140 disk_images/helloworld.dsk
-cat applesoft_basic_programs/helloworld.bas | java -jar applecommander/AppleCommander-ac-1.8.0.jar -bas disk_images/helloworld.dsk helloworld
+java -jar applecommander/AppleCommander-ac-1.8.0.jar -dos140 disk_images/created/helloworld.dsk
+cat applesoft_basic_programs/helloworld.bas | java -jar applecommander/AppleCommander-ac-1.8.0.jar -bas disk_images/created/helloworld.dsk helloworld
 
-java -jar applecommander/AppleCommander-ac-1.8.0.jar -dos140 disk_images/sample.dsk
-cat applesoft_basic_programs/sample.bas | java -jar applecommander/AppleCommander-ac-1.8.0.jar -bas disk_images/sample.dsk sample
+java -jar applecommander/AppleCommander-ac-1.8.0.jar -dos140 disk_images/created/sample.dsk
+cat applesoft_basic_programs/sample.bas | java -jar applecommander/AppleCommander-ac-1.8.0.jar -bas disk_images/created/sample.dsk sample
 ```
 
 # Where to run your disk image
