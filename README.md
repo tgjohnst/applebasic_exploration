@@ -67,11 +67,22 @@ Suitable devices include:
 - [FloppyEmu](https://www.bigmessowires.com/floppy-emu/)
 - [wDrive](https://ct6502.org/product/wdrive/)
 
-### *Don't want to transfer an SD card back and forth?*
+### *Using a disk emulator but don't want to move an SD card back and forth?*
 Using a Wifi SD card such as eye-fi, toshiba flashAir, etc, you could enable wifi transfer of disk images to one of the above hardware disk emulators so that you wouldn't even have to worry about SD cards, just connect to the wifi sd network from your mac and drop the disk image files on there.
 
-## Using an Apple II Software Emulator
-You can use these emulators to test disk images by using the process above if you don't own actual apple II hardware:
+## Using an actual Apple II + ADTPro
+ADTPro is a program that, when running on both an apple II and a modern PC connected by some manner, allows transfer of disk images between the two. 
+
+The suggested setup for a modern PC to an Apple IIc involves a null modem to RS232 cable and a USB to rs232 cable. These cables can be purchased [here](https://retrofloppy.com/products/#USB)
+
+Since we only need to run applesoft BASIC programs, and our IIc may not have enough memory to run ProDOS, we just want the DOS 3.3 version of ADT if we can manage to get it working
+- [ADT (DOS 3.3)](https://github.com/david-schmidt/adt)
+- [ADTPro](https://adtpro.com/index.html)
+
+TODO: I will finish this section later.
+
+## Using a software-emulated Apple II
+Don't have an actual Apple II? You can use these emulators to test disk images by using the process above if you don't own actual apple II hardware:
 - https://www.scullinsteel.com/apple2/ is an online apple ii emulator
 - [microm8](https://paleotronic.com/software/microm8/) is an Apple II emulator for Windows
 
