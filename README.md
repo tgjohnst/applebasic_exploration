@@ -67,6 +67,9 @@ Suitable devices include:
 - [FloppyEmu](https://www.bigmessowires.com/floppy-emu/)
 - [wDrive](https://ct6502.org/product/wdrive/)
 
+### *Don't want to transfer an SD card back and forth?*
+Using a Wifi SD card such as eye-fi, toshiba flashAir, etc, you could enable wifi transfer of disk images to one of the above hardware disk emulators so that you wouldn't even have to worry about SD cards, just connect to the wifi sd network from your mac and drop the disk image files on there.
+
 ## Using an Apple II Software Emulator
 You can use these emulators to test disk images by using the process above if you don't own actual apple II hardware:
 - https://www.scullinsteel.com/apple2/ is an online apple ii emulator
