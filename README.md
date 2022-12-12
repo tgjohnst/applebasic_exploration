@@ -58,20 +58,21 @@ java -jar applecommander/AppleCommander-ac-1.8.0.jar -dos140 disk_images/sample.
 cat applesoft_basic_programs/sample.bas | java -jar applecommander/AppleCommander-ac-1.8.0.jar -bas disk_images/sample.dsk sample
 ```
 
+# Where to run your disk image
 
-# Testing disk images
-You can use these emulators to test disk images by using the process above if you don't own actual apple II hardware:
-- https://www.scullinsteel.com/apple2/ is an online apple ii emulator
-- [microm8](https://paleotronic.com/software/microm8/) is an Apple II emulator for Windows
-
-# Running your programs from a disk image
-
-## Using an actual Apple II
+## Using an actual Apple II + a disk drive emulator
 Unless you have the (rare) hardware to write 5.25" floppy disks, you will need a hardware device to pretend to be a disk drive. The images (.dsk files) you created above are loaded via SD card onto this disk drive emulator device, which is connected to the Apple II. Such emulators tend to cost around $100
 
 Suitable devices include:
 - [FloppyEmu](https://www.bigmessowires.com/floppy-emu/)
 - [wDrive](https://ct6502.org/product/wdrive/)
+
+## Using an Apple II Software Emulator
+You can use these emulators to test disk images by using the process above if you don't own actual apple II hardware:
+- https://www.scullinsteel.com/apple2/ is an online apple ii emulator
+- [microm8](https://paleotronic.com/software/microm8/) is an Apple II emulator for Windows
+
+# Loading your program from disk
 
 ## If we are using a modified DOS master disk in single disk mode (option 1)
 1. Insert our modified disk (image) in drive 1 (bootable). 
