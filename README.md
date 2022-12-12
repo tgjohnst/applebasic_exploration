@@ -1,4 +1,4 @@
-# applebasic_exploration
+# Running AppleSoft BASIC from a modern mac on an Apple ][c
 
 Figuring out how to run AppleSoft BASIC programs, written on a modern mac, on an original apple IIc.
 
