@@ -163,16 +163,7 @@ repeat while (addBasic = true)
 end repeat
 
 # Finally, open a finder window with the output file highlighted
-display dialog "Complete! Your image is now ready to use. Click ok to open the file and exit" buttons {"OK"} default button "OK"
+display dialog "Complete - Your image is now ready to use!\n\nClick OK to open the file in Finder and exit" buttons {"OK"} default button "OK"
 tell application "Finder"
-    to reveal newTargetImage
-
-# Set addBasic to true. While addbasic: 
-  # Prompt the user for basic file (or txt)
-  # Ask user for program name
-  # Do the actual conversion and addition
-  # Ask the user if they would like to add more and set addbasic accordingly
-
-# Display to the user the output filename
-# Open a finder window in the output location
-# Exit
+    reveal newTargetImage
+end tell
