@@ -102,24 +102,43 @@ on getACPath()
     return workingPathAlias
 end getACPath
 
+# Makes the AppleCommander Command to run
 on makeACCommand(basicFilePath, programName, targetImagePath)
     set acPath to getACPath()
     set theCommand to "cat " & (POSIX path of basicFilePath)
     set theCommand to theCommand & " | java -jar " & (POSIX path of acPath) 
     set theCommand to theCommand & " -bas " & (POSIX path of targetImagePath)
     set theCommand to theCommand & " " & programName
+    log theCommand
     return theCommand
 end makeACCommand
 
+# Called if AppleCommander hits an error adding the basic file
+on acJavaError(errMsg)
+    set acMsg to "There was an error adding your basic file to the disk.\nHave you confirmed it's a valid integer basic file?\nDetails below:\n\n" & errMsg
+    display dialog acMsg
+    quit
+end acJavaError
+
+# Adds an applesoft BASIC file to a target image
 on addFileToImage(basicFilePath, programName, targetImagePath)
     set acCommand to makeACCommand(basicFilePath, programName, targetImagePath)
     try
         do shell script acCommand
-    on error
-        javaError()
+    on error errMsg
+        acJavaError(errMsg)
     end try
 end addFileToImage
 
+# Gets a suggested name for a basic program. 
+# e.g. by default, "myprog.bas" converts to MYPROG
+on getSuggestedName(basicFilePath)
+    set theCommand to "basename " & (POSIX path of basicFilePath)
+    set theCommand to theCommand & " | sed \"s/[^[:alnum:]-]//g\""
+    set theCommand to theCommand & " | tr [:lower:] [:upper:]"
+    display dialog theCommand
+    return theCommand
+end getSuggestedName
     
 # TODO ^add resource paths instead of using relative path here.
 
@@ -128,12 +147,12 @@ set addBasic to true
 repeat while (addBasic = true)
     # Get program file
     set basicToAdd to choose file with prompt "Select your Apple basic program file (.txt / .bas)"
+    set suggestedName to getSuggestedName(basicToAdd)
     # Get program name
-    display dialog "Please enter a name for your program. This name cannot contain spaces or special characters" default answer "MYPROGRAM" with icon note buttons {"Cancel", "Continue"} default button "Continue"
+    display dialog "Please enter a name for your program. This name cannot contain spaces or special characters" default answer suggestedName with icon note buttons {"Cancel", "Continue"} default button "Continue"
     set addAsName to text returned of the result
     # Add them to the image
     set cmdResult to addFileToImage(basicToAdd, addAsName, newTargetImage)
-    display dialog cmdResult
     # See if the user wants to add more files, if so repeat
     display dialog "Would you like to add any more BASIC files to your disk?" buttons {"Yes", "No"} default button "No"
     set doContinue to the button returned of the result
