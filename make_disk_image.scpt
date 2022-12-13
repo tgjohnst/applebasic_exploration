@@ -10,16 +10,16 @@ set dialogText to "This script will create a usable disk image containing your A
 display dialog dialogText buttons {"OK"} default button "OK"
 
 # Check Java installation
-on javaError()
+on noJavaError()
     set errorText to "The script encountered a problem with your Java installation. Please ensure java is installed and available at the command line. You can install java from the java website, or by using homebrew ('brew install openjdk@11')"
     display dialog errorText buttons {"Exit"}
     quit
-end javaError
+end noJavaError
 
 try
     do shell script "java -h"
 on error
-    javaError()
+    noJavaError()
 end try
 
 # Get info from the user about what they want to do and create base image
@@ -88,8 +88,59 @@ on createTargetImage(baseImagePath, outFileName, outFolder)
     return alias ((outFolder as text) & outFileNameNR)
 end createTargetImage
 
-display dialog (createTargetImage(inputImagePath, outImageName, outFolder) as text)
+set newTargetImage to createTargetImage(inputImagePath, outImageName, outFolder)
 
+# Add each input BASIC file to the disk image
+######
+
+# Gets the path to the applecommander executable
+on getACPath()
+    set AC_RELPATH to "/applecommander/AppleCommander-ac-1.8.0.jar"
+    set thisPath to POSIX path of (path to me)
+    set workingPath to do shell script "dirname " & thisPath
+    set workingPathAlias to POSIX FILE (workingPath & AC_RELPATH) as alias
+    return workingPathAlias
+end getACPath
+
+on makeACCommand(basicFilePath, programName, targetImagePath)
+    set acPath to getACPath()
+    set theCommand to "cat " & (POSIX path of basicFilePath)
+    set theCommand to theCommand & " | java -jar " & (POSIX path of acPath) 
+    set theCommand to theCommand & " -bas " & (POSIX path of targetImagePath)
+    set theCommand to theCommand & " " & programName
+    return theCommand
+end makeACCommand
+
+on addFileToImage(basicFilePath, programName, targetImagePath)
+    set acCommand to makeACCommand(basicFilePath, programName, targetImagePath)
+    try
+        do shell script acCommand
+    on error
+        javaError()
+    end try
+end addFileToImage
+
+    
+# TODO ^add resource paths instead of using relative path here.
+
+set addBasic to true
+
+repeat while (addBasic = true)
+    # Get program file
+    set basicToAdd to choose file with prompt "Select your Apple basic program file (.txt / .bas)"
+    # Get program name
+    display dialog "Please enter a name for your program. This name cannot contain spaces or special characters" default answer "MYPROGRAM" with icon note buttons {"Cancel", "Continue"} default button "Continue"
+    set addAsName to text returned of the result
+    # Add them to the image
+    set cmdResult to addFileToImage(basicToAdd, addAsName, newTargetImage)
+    display dialog cmdResult
+    # See if the user wants to add more files, if so repeat
+    display dialog "Would you like to add any more BASIC files to your disk?" buttons {"Yes", "No"} default button "No"
+    set doContinue to the button returned of the result
+    if (doContinue = "No")
+        set addBasic to False
+    end if
+end repeat
 # Set addBasic to true. While addbasic: 
   # Prompt the user for basic file (or txt)
   # Ask user for program name
