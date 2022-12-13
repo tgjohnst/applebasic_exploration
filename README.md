@@ -35,6 +35,12 @@ java -jar applecommander/AppleCommander-ac-1.8.0.jar
 ## Converting a BASIC file to a disk image
 We can add BASIC to be loaded 2 ways, either on a disk with DOS 3.3 Master preloaded, or on an empty DOS compatible disk. Generally, if we only have one disk drive (or disk drive emulator), we will want to go with option (1) since we will need the BASIC interpreter that comes with DOS
 
+**I have included a very helpful AppleScript that automates this whole routine so you don't have to know the terminal commands below. The applescript is located at `make_disk_image.scpt`.**
+
+![Applescript Usage animated GIF](images/applescript_usage.gif)
+
+If you don't use the applescript, you can use the commandline below:
+
 ### Adding images on top of DOS w/ Integer BASIC
 ```
 # from the root of this repo
