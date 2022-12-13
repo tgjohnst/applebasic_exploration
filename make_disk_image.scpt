@@ -166,13 +166,13 @@ end repeat
 on generateFinalDialog(targetImageLocation)
     set finalDialog to "Complete - Your image is now ready to use!\n\n"
     set finalDialog to finalDialog & "Your file was saved as: \n"
-    set finalDialog to finalDialog & (POSIX path newTargetImage) & "\n\n"
+    set finalDialog to finalDialog & (POSIX path of targetImageLocation) & "\n\n"
     set finalDialog to finalDialog & "Click OK to open the file in Finder and exit"
-    return finalDialog
+    display dialog finalDialog
 end generateFinalDialog
 
 # Finish up
-display dialog generateFinalDialog(newTargetImage)
+generateFinalDialog(newTargetImage)
 tell application "Finder"
     reveal newTargetImage
 end tell
