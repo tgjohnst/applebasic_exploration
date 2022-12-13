@@ -134,7 +134,8 @@ end addFileToImage
 # e.g. by default, "myprog.bas" converts to MYPROG
 on getSuggestedName(basicFilePath)
     set theCommand to "basename " & (POSIX path of basicFilePath)
-    set theCommand to theCommand & " | sed \"s/[^[:alnum:]-]//g\""
+    set theCommand to theCommand & " | sed 's/\\(.*\\)\\..*/\\1/'"
+    set theCommand to theCommand & " | sed 's/[^[:alnum:]-]//g'"
     set theCommand to theCommand & " | tr [:lower:] [:upper:]"
     set parsedName to do shell script theCommand
     return parsedName
@@ -160,6 +161,12 @@ repeat while (addBasic = true)
         set addBasic to False
     end if
 end repeat
+
+# Finally, open a finder window with the output file highlighted
+display dialog "Complete! Your image is now ready to use. Click ok to open the file and exit" buttons {"OK"} default button "OK"
+tell application "Finder"
+    to reveal newTargetImage
+
 # Set addBasic to true. While addbasic: 
   # Prompt the user for basic file (or txt)
   # Ask user for program name
