@@ -17,14 +17,14 @@ More example programs, including those used below can be found in this repo in t
 
 # Writing disk images containing our program
 
-AppleCommander appears to be the standard for composing disk images. Although our program will be written in AppleSoft BASIC, it needs to be properly tokenized to be read by the Apple IIc. Thankfully, AppleCommander has a utility for loading plaintext BASIC into disk images: https://applecommander.github.io/ac/#put-standard-input-basic-source-code-onto-disk-image-as-a-basic-file.
+AppleCommander is the standard for composing disk images and has some built-in libraries for dealing with AppleSoft BASIC. Although our program will be written in AppleSoft BASIC, it needs to be properly tokenized to be read by the Apple IIc. Thankfully, AppleCommander has a utility for loading plaintext BASIC into disk images: https://applecommander.github.io/ac/#put-standard-input-basic-source-code-onto-disk-image-as-a-basic-file.
 
 ## Setup AppleCommander on a mac
-My mac is running OSX ventura on Apple silicon (M1). Theoretically, the `ac` (commandline) version of applecommander is agnostic to OS, so this shouldn't matter; the included jar file should work on all systems.
+Theoretically, the `ac` (commandline) version of applecommander is agnostic to OS, so this shouldn't matter; the included jar file should work on all systems with Java installed.
 
 Unless I write some kind of web server for this, we are going to do this using the command line (terminal) on our mac
 
-Install java openjdk and test if the distributed jar is working (note we use the `ac` jar for command line version of applecommander)
+On a mac, we can use homebrew to install the java openjdk and test if the distributed jar is working (note we use the `ac` jar for command line version of applecommander)
 
 ```
 brew install openjdk@11
