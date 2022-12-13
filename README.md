@@ -37,11 +37,11 @@ We can add BASIC to be loaded 2 ways, either on a disk with DOS 3.3 Master prelo
 
 **I have included a very helpful AppleScript that automates this whole routine so you don't have to know the terminal commands below. The applescript is located at `make_disk_image.scpt`.**
 
-The script can be run from any clone of this repository on a mac. Java is required in order for the script to run. 
-
 ![Applescript Usage animated GIF](images/applescript_usage.gif)
 
-If you don't use the applescript, you can use the commandline below:
+The script can be run from any clone of this repository on a mac. Java is required in order for the script to run. 
+
+**If you don't use the applescript, you can use the commandline below. Otherwise, skip to the next section**
 
 ### Adding images on top of DOS w/ Integer BASIC
 ```
