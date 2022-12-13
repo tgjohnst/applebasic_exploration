@@ -136,8 +136,8 @@ on getSuggestedName(basicFilePath)
     set theCommand to "basename " & (POSIX path of basicFilePath)
     set theCommand to theCommand & " | sed \"s/[^[:alnum:]-]//g\""
     set theCommand to theCommand & " | tr [:lower:] [:upper:]"
-    display dialog theCommand
-    return theCommand
+    set parsedName to do shell script theCommand
+    return parsedName
 end getSuggestedName
     
 # TODO ^add resource paths instead of using relative path here.
