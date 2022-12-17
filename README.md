@@ -19,20 +19,8 @@ More example programs, including those used below can be found in this repo in t
 
 AppleCommander is the standard for composing disk images and has some built-in libraries for dealing with AppleSoft BASIC. Although our program will be written in AppleSoft BASIC, it needs to be properly tokenized to be read by the Apple IIc. Thankfully, AppleCommander has a utility for loading plaintext BASIC into disk images: https://applecommander.github.io/ac/#put-standard-input-basic-source-code-onto-disk-image-as-a-basic-file.
 
-## Setup AppleCommander on a mac
-Theoretically, the `ac` (commandline) version of applecommander is agnostic to OS, so this shouldn't matter; the included jar file should work on all systems with Java installed.
 
-Unless I write some kind of web server for this, we are going to do this using the command line (terminal) on our mac
-
-On a mac, we can use homebrew to install the java openjdk and test if the distributed jar is working (note we use the `ac` jar for command line version of applecommander)
-
-```
-brew install openjdk@11
-# in this repository
-java -jar applecommander/AppleCommander-ac-1.8.0.jar
-```
-
-## Converting a BASIC file to a disk image
+## Converting a BASIC file to a disk image with the included script
 We can add BASIC to be loaded 2 ways, either on a disk with DOS 3.3 Master preloaded, or on an empty DOS compatible disk. Generally, if we only have one disk drive (or disk drive emulator), we will want to go with option (1) since we will need the BASIC interpreter that comes with DOS
 
 **I have included a very helpful AppleScript that automates this whole routine so you don't have to know the terminal commands below. The applescript is located at `make_disk_image.scpt`.**
@@ -41,7 +29,22 @@ We can add BASIC to be loaded 2 ways, either on a disk with DOS 3.3 Master prelo
 
 The script can be run from any clone of this repository on a mac. Java is required in order for the script to run. 
 
-**If you don't use the applescript, you can use the commandline below. Otherwise, skip to the next section**
+### Java installation
+Theoretically, the `ac` (commandline) version of applecommander is agnostic to OS, so this shouldn't matter; the included jar file should work on all systems with Java installed.
+
+On a mac, you can use homebrew to install the java openjdk and test if the distributed jar is working (note we use the `ac` jar for command line version of applecommander)
+
+```
+brew install openjdk@11
+```
+
+Alternatively, you can install Java via the Java website. You may need to restart your system after java installation for everything to work properly
+
+
+## Converting a BASIC file to a disk image without the included applescript
+If you've used the applescript, skip to the next section, **Where To Run Your Disk Image**, below. 
+
+Otherwise, you can follow the format of the commands below, executed in a shell terminal in the root of this repository, to build disk images.
 
 ### Adding images on top of DOS w/ Integer BASIC
 ```
