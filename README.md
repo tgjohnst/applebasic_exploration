@@ -2,7 +2,7 @@
 
 Figuring out how to run AppleSoft BASIC programs, written on a modern mac, on an original apple IIc.
 
-Some solutions include keyboard emulators or modems, but this could require some intense hardware work. We are be better off packaging up programs as disk images which we then use with an emulated disk drive or transfer cable, or even writing our own physical floppies if we have a mechanism to write 5.25" floppies.
+Some solutions include keyboard emulators or modems, but this could require some intense hardware work. If requirements are fluid, we may be better off packaging up programs as disk images which we then use with SD card or transfer cable, or even writing our own physical floppies if we have a mechanism to write 5.25" floppies.
 
 # AppleSoft BASIC
 
@@ -17,7 +17,7 @@ More example programs, including those used below can be found in this repo in t
 
 # Writing disk images containing our program
 
-AppleCommander is the standard for composing disk images and has some built-in libraries for dealing with AppleSoft BASIC. Although our program will be written in AppleSoft BASIC, it needs to be properly tokenized to be read by the Apple IIc. Thankfully, AppleCommander has a utility for loading plaintext BASIC into disk images: https://applecommander.github.io/ac/#put-standard-input-basic-source-code-onto-disk-image-as-a-basic-file.
+AppleCommander is the standard for composing disk images and has some built-in libraries for dealing with AppleSoft BASIC. Although our program will be written in AppleSoft BASIC, it needs to be properly tokenized/compiled to be read by the Apple IIc. Thankfully, AppleCommander has a utility for loading plaintext BASIC into disk images: https://applecommander.github.io/ac/#put-standard-input-basic-source-code-onto-disk-image-as-a-basic-file.
 
 
 ## Converting a BASIC file to a disk image with the included script
