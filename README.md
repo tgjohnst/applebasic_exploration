@@ -86,11 +86,13 @@ ADTPro is a program that, when running on both an apple II and a modern PC conne
 
 The suggested setup for a modern PC to an Apple IIc involves a null modem to RS232 cable and a USB to rs232 cable. These cables can be purchased [here](https://retrofloppy.com/products/#USB)
 
-Since we only need to run applesoft BASIC programs, and our IIc may not have enough memory to run ProDOS, we just want the DOS 3.3 version of ADT if we can manage to get it working
+Alternatively, you can use a smartphone and perform the transfer over the audio jack, which may offer a more convenient "wireless" alternative.
+
+Since we only need to run applesoft BASIC programs, and our IIc may not be ProDOS-friendly depending on the ROM chip it has installed, we just want the DOS 3.3 version of ADT if we can manage to get it working
 - [ADT (DOS 3.3)](https://github.com/david-schmidt/adt)
 - [ADTPro](https://adtpro.com/index.html)
 
-TODO: I will finish this section later.
+I haven't tested this ADTPro solution, so no guarantees
 
 ## Using a software-emulated Apple II
 Don't have an actual Apple II? You can use these emulators to test disk images by using the process above if you don't own actual apple II hardware:
