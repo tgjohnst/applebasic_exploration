@@ -23,11 +23,11 @@ AppleCommander is the standard for composing disk images and has some built-in l
 ## Converting a BASIC file to a disk image with the included script
 We can add BASIC to be loaded 2 ways, either on a disk with DOS 3.3 Master preloaded, or on an empty DOS compatible disk. Generally, if we only have one disk drive (or disk drive emulator), we will want to go with option (1) since we will need the BASIC interpreter that comes with DOS
 
-**I have included a very helpful AppleScript that automates this whole routine so you don't have to know the terminal commands below. The applescript is located at `make_disk_image.scpt`.**
+**I have included a very helpful AppleScript that automates this whole routine below. The applescript is located at `make_disk_image.scpt`.**
 
 ![Applescript Usage animated GIF](images/applescript_usage.gif)
 
-The script can be run from any clone of this repository on a mac. Java is required in order for the script to run. 
+The script can be run from any clone of this repository on a mac. Java is required in order for the script to run, and the script will prompt you if it cannot find a java installation. 
 
 ### Java installation
 Theoretically, the `ac` (commandline) version of applecommander is agnostic to OS, so this shouldn't matter; the included jar file should work on all systems with Java installed.
