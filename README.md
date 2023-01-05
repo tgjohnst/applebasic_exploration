@@ -2,7 +2,7 @@
 
 Figuring out how to run AppleSoft BASIC programs, written on a modern mac, on an original apple IIc.
 
-One suggested potential solution is to build a remote keyboard emulator. However, this would require a significant amount of hardware expertise, components that may no longer exist, and a string of conversions of input format. We are be better off emulating a disk drive (or even writing our own floppies) and packaging up programs as disk images.
+Some solutions include keyboard emulators or modems, but this could require some intense hardware work. We are be better off packaging up programs as disk images which we then use with an emulated disk drive or transfer cable, or even writing our own physical floppies if we have a mechanism to write 5.25" floppies.
 
 # AppleSoft BASIC
 
@@ -75,8 +75,8 @@ cat applesoft_basic_programs/sample.bas | java -jar applecommander/AppleCommande
 Unless you have the (rare) hardware to write 5.25" floppy disks, you will need a hardware device to pretend to be a disk drive. The images (.dsk files) you created above are loaded via SD card onto this disk drive emulator device, which is connected to the Apple II. Such emulators tend to cost around $100
 
 Suitable devices include:
-- [FloppyEmu](https://www.bigmessowires.com/floppy-emu/)
-- [wDrive](https://ct6502.org/product/wdrive/)
+- [FloppyEmu](https://www.bigmessowires.com/floppy-emu/) (uses microSD)
+- [wDrive](https://ct6502.org/product/wdrive/) (uses SD)
 
 ### *Using a disk emulator but don't want to move an SD card back and forth?*
 Using a Wifi SD card such as eye-fi, toshiba flashAir, etc, you could enable wifi transfer of disk images to one of the above hardware disk emulators so that you wouldn't even have to worry about SD cards, just connect to the wifi sd network from your mac and drop the disk image files on there.
