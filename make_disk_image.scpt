@@ -11,8 +11,9 @@ display dialog dialogText buttons {"OK"} default button "OK"
 
 # Check Java installation
 on noJavaError()
-    set errorText to "The script encountered a problem with your Java installation. Please ensure java is installed and available at the command line. You can install java from the java website, or by using homebrew ('brew install openjdk@11')"
+    set errorText to "The script encountered a problem with your Java installation. Please ensure java is installed and available at the command line. The easiest way to install java is from the java website, which will open upon exit"
     display dialog errorText buttons {"Exit"}
+    do shell script "open https://www.java.com/en/download/"
     quit
 end noJavaError
 
