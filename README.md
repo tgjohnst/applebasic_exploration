@@ -1,8 +1,8 @@
 # Running AppleSoft BASIC from a modern mac on an Apple ][c
 
-Figuring out how to run AppleSoft BASIC programs, written on a modern mac, on an original apple IIc.
+The Apple IIc is a remarkable device, and many working ones are still floating around. With the advent of genAI coding tools, there are lots of ways to develop better code in AppleSoft Basic, one of the core languages of the IIc. Figuring out how to run AppleSoft BASIC programs, written on a modern mac, on an original apple IIc, is not trivial.
 
-Some solutions include keyboard emulators or modems, but this could require some intense hardware work. If requirements are fluid, we may be better off packaging up programs as disk images which we then use with SD card or transfer cable, or even writing our own physical floppies if we have a mechanism to write 5.25" floppies.
+Some solutions include keyboard emulators or modems, but this could require some intense hardware work. If requirements are fluid, we may be better off packaging up programs as disk images which we then use with SD card or transfer cable, or even writing our own physical floppies if we have a mechanism to write 5.25" floppies. This is what I detail below!
 
 # AppleSoft BASIC
 
